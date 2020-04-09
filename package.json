@@ -1,0 +1,28 @@
+{
+    "name": "pet-react-advanced",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RubenZagon/Pet-React-advanced"
+    },
+    "author": "Rubén Zagon <ruben.zagon@gmail.com>",
+    "license": "MIT",
+    "description": "Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)",
+    "bugs": {
+        "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
+    },
+    "homepage": "https://github.com/RubenZagon/Pet-React-advanced#readme",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack-dev-server"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "html-webpack-plugin": "^4.0.4",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "dependencies": {}
+}
