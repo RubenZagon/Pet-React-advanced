@@ -16,7 +16,8 @@
     "scripts": {
         "build": "webpack",
         "dev": "webpack-dev-server",
-        "lint": "standard"
+        "lint": "standard",
+        "now-build": "yarn build"
     },
 
     "keywords": [],

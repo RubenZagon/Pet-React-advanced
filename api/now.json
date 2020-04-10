@@ -1,8 +1,8 @@
 {
     "version": 2,
-    "name": "petgram-server",
+    "name": "petgram-server-ruben",
     "alias": [
-        "petgram-api"
+        "petgram-api-ruben"
     ],
     "builds": [
         {
