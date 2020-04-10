@@ -15,8 +15,10 @@
     "homepage": "https://github.com/RubenZagon/Pet-React-advanced#readme",
     "scripts": {
         "build": "webpack",
-        "dev": "webpack-dev-server"
+        "dev": "webpack-dev-server",
+        "lint": "standard"
     },
+
     "keywords": [],
     "devDependencies": {
         "@babel/core": "^7.9.0",
@@ -31,5 +33,16 @@
     "dependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
+    },
+    "standard": {
+        "ignore": [
+            "/api/**"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "./node_modules/standard/eslintrc.json"
+        ]
     }
 }
+
