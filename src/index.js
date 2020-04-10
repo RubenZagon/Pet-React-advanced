@@ -1,1 +1,7 @@
-console.log("Mi proyecto de React Avanzado")
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  <h1>Hola Mundo!</h1>,
+  document.getElementById("app")
+);
