@@ -1,20 +1,15 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {Category} from "../../Atoms/Category";
 import {Item, List} from "./styles";
+import {useCategoriesData} from "../../../customHooks/useCategoriesData";
+import {LoadingCategory} from "../../Atoms/LoagingCategory";
 
 export const ListOfCategories = () => {
-  const [categories, setCategories] = useState([]);
+  const {categories, loading} = useCategoriesData();
   const [showFixed, setShowFixed] = useState(false);
 
   useEffect(function () {
-    fetch('https://petgram-server-ruben.rubenzagon.now.sh/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-      })
-  }, []);
-
-  useEffect(function () {
+    // noinspection JSUnusedLocalSymbols
     const onScroll = event => {
       const newShowFixed = window.scrollY > 200;
       showFixed !== newShowFixed && setShowFixed(newShowFixed)
@@ -30,7 +25,9 @@ export const ListOfCategories = () => {
   const renderList = (fixed) => (
     <List fixed={fixed}>
       {
-        categories.map(category => <Item key={category.id}><Category {...category}/></Item>)
+        loading
+          ? [1, 2, 3, 4].map(item => <Item key={item}><LoadingCategory/></Item>)
+          : categories.map(category => <Item key={category.id}><Category {...category}/></Item>)
       }
     </List>
   );
