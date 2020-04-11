@@ -10,7 +10,7 @@ const Rotate = keyframes`
 `;
 
 export const Spinner = styled.div`
-  animation: 300ms ${Rotate} linear;
+  animation: 300ms ${Rotate} linear infinite;
   
   display: inline-block;
   position: relative;
