@@ -8,6 +8,7 @@ export const Article = styled.article`
 `;
 
 
+// noinspection JSUnresolvedFunction
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;

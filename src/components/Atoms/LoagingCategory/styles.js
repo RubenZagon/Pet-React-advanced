@@ -9,6 +9,7 @@ const Rotate = keyframes`
   }
 `;
 
+// noinspection JSUnresolvedFunction
 export const Spinner = styled.div`
   animation: 300ms ${Rotate} linear infinite;
   
@@ -17,7 +18,7 @@ export const Spinner = styled.div`
   width: 80px;
   height: 80px;
 
-  & div {
+  //noinspection CssOverwrittenProperties,CssOverwrittenProperties& div {
     box-sizing: border-box;
     display: block;
     position: absolute;
