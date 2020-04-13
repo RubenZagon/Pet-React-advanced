@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {Category} from "../../Atoms/Category";
 import {Item, List} from "./styles";
-import {useCategoriesData} from "../../../customHooks/useCategoriesData";
+import {useCategoriesData} from "../../../hooks/useCategoriesData";
 import {LoadingCategory} from "../../Atoms/LoagingCategory";
 
 export const ListOfCategories = () => {
