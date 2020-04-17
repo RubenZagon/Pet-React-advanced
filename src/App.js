@@ -18,7 +18,8 @@ export const App = () => {
           ? <PhotoCardWithQuery id={detailId}/>
           : <Fragment>
             <ListOfCategories/>
-            <ListOfPhotoCards categoryId={1}/>
+            <ListOfPhotoCards/>
+            {/*<ListOfPhotoCards categoryId={1}/> // renderizar solo una categoria*/}
           </Fragment>
       }
     </div>

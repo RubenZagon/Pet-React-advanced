@@ -3,6 +3,7 @@ import {Article, Img, ImgWrapper} from "./styles";
 import {useLazyLoad} from "../../../hooks/useLazyLoad";
 import {useLocalStorage} from "../../../hooks/useLocalStorage";
 import {FavButton} from "../FavButton";
+import {ToggleLikeMutation} from "../../../container/ToggleLikeMutation";
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
@@ -12,8 +13,6 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
   const key = `like - ${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
 
-
-  const handleFavClick = () => setLiked(!liked);
 
   return (
     <Article ref={element}>
@@ -25,10 +24,23 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
             </ImgWrapper>
           </a>
 
-          <FavButton liked={liked}
-                     likes={likes}
-                     onClick={handleFavClick}
-          />
+          <ToggleLikeMutation>
+            {
+              (toggleLike) => {
+                const handleFavClick = () => {
+                  !liked && toggleLike({variables: {input: {id}}})
+                  setLiked(!liked)
+                };
+                return (
+                  <FavButton liked={liked}
+                             likes={likes}
+                             onClick={handleFavClick}
+                  />
+                )
+              }
+            }
+
+          </ToggleLikeMutation>
         </Fragment>
       }
     </Article>
