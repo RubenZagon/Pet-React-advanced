@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import {GlobalStyles} from './styles/GlobalStyles';
-import {ListOfCategories} from "./components/Molecules/ListOfCategories";
-import {ListOfPhotoCards} from "./components/Molecules/ListOfPhotoCards";
+import {Router} from "@reach/router";
 import {Logo} from "./components/Atoms/Logo";
 import {PhotoCardWithQuery} from "./container/PhotoCardWithQuery";
+import {Home} from "./pages/Home";
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search)
@@ -16,11 +16,10 @@ export const App = () => {
       {
         detailId
           ? <PhotoCardWithQuery id={detailId}/>
-          : <Fragment>
-            <ListOfCategories/>
-            <ListOfPhotoCards/>
-            {/*<ListOfPhotoCards categoryId={1}/> // renderizar solo una categoria*/}
-          </Fragment>
+          : <Router>
+            <Home path={'/'}/>
+            <Home path={'/pet/:id'}/>
+          </Router>
       }
     </div>
   )
