@@ -20,6 +20,7 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
       {
         show && <Fragment>
           <Link to={`/detail/${id}`}>
+
             <ImgWrapper>
               <Img src={src} alt=""/>
             </ImgWrapper>
@@ -40,7 +41,6 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
                 )
               }
             }
-
           </ToggleLikeMutation>
         </Fragment>
       }
