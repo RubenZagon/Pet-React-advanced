@@ -22,7 +22,7 @@ export const NotRegisterUser = () => {
 
                     const errorMsg = error && "El usuario ya existe o hay algún problema";
 
-                    return <UserForm error={errorMsg} title={'Registrarse'} onSubmit={onSubmit}/>
+                    return <UserForm disabled={loading} error={errorMsg} title={'Registrarse'} onSubmit={onSubmit}/>
                   }
                 }
               </RegisterMutation>
