@@ -5,14 +5,29 @@ import {ApolloProvider} from 'react-apollo'
 import {App} from "./App";
 import Context from "./Context";
 
-const cache = new InMemoryCache()
+const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'https://petgram-server-ruben-9u45ly875.now.sh/graphql'
+  uri: 'https://petgram-server-ruben.now.sh/graphql'
 });
 
 const client = new ApolloClient({
   cache,
-  link
+  link,
+  request: (operation) => {
+    const token = window.sessionStorage.getItem('token');
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  onError: error => {
+    const {networkError} = error;
+    if (networkError && networkError.result.code === 'invalid_token') {
+      window.sessionStorage.removeItem('token');
+      window.location.href = '/';
+    }
+  }
 });
 
 ReactDOM.render(
