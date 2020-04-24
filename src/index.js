@@ -18,6 +18,14 @@ const client = new ApolloClient({
         authorization
       }
     })
+  },
+  // Para asegurarnos de no tener problemas cuando el token ha expirado.
+  onError: error => {
+    const {networkError} = error;
+    if (networkError && networkError.result.code === 'invalid_token') {
+      window.sessionStorage.removeItem('token');
+      window.sessionStorage.href = '/';
+    }
   }
 });
 
