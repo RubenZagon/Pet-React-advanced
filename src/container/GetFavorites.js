@@ -27,7 +27,9 @@ const renderProp = ({loading, error, data}) => {
 };
 
 export const FavsWithQuery = () => (
-  <Query query={GET_FAVS}>
+  // fetchPolicy=‘cache-and-network’ va a la red y obtiene una version fresca q almacena en el cache.
+  // Este es mejor por si hay acceso offline a la app.
+  <Query query={GET_FAVS} fetchPolicy={'cache-and-network'}>
     {renderProp}
   </Query>
 );
