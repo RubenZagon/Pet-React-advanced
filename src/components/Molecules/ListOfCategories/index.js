@@ -4,7 +4,7 @@ import {Item, List} from "./styles";
 import {useCategoriesData} from "../../../hooks/useCategoriesData";
 import {LoadingCategory} from "../../Atoms/LoagingCategory";
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponents = () => {
   const {categories, loading} = useCategoriesData();
   const [showFixed, setShowFixed] = useState(false);
 
@@ -40,3 +40,5 @@ export const ListOfCategories = () => {
     </Fragment>
   )
 };
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponents);
