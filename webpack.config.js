@@ -14,7 +14,6 @@ module.exports = {
       template: 'src/index.html'
     }),
     new WebpackPwaManifestPlugin({
-      filename: 'manifest.webmanifest',
       name: 'Petgram - Tu app de fotos de mascotas',
       short_name: 'Petgram',
       description: 'Con Petgram puedes encontrar fotos de animales domésticos muy fácilmente',
@@ -23,24 +22,20 @@ module.exports = {
       icons: [
         {
           src: path.resolve('src/assets/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          ios: true,
+          sizes: [96, 128, 192, 256, 384, 512]
         }
       ]
     }),
     new WorkboxWebpackPlugin.GenerateSW({
       runtimeCaching: [
         {
-          // Dirección desde donde está sacando las imagenes
           urlPattern: new RegExp('https://(res.cloudinary.com | images.unplash.com)'),
-          // Primero mirará si el recurso está en al caché, antes que en la red
           handler: 'CacheFirst',
           options: {
             cacheName: 'images'
           }
         },
         {
-          // Dirección desde donde está desplegado el servidor
           urlPattern: new RegExp('https://petgram-server-ruben.now.sh'),
           handler: 'NetworkFirst',
           options: {
