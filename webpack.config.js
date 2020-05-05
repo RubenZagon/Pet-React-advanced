@@ -21,8 +21,10 @@ module.exports = {
       theme_color: '#b1a',
       icons: [
         {
-          src: path.resolve('src/assets/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512]
+          src: path.resolve(__dirname, 'src/assets/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('Icons'),
+          ios: true,
         }
       ]
     }),
