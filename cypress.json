@@ -1,1 +1,6 @@
-{}
+{
+    "baseUrl": "https://pet-react-advanced.now.sh/",
+    "chromeWebSecurity": false,
+    "viewportWidth": 500,
+    "viewportHeight": 800
+}
